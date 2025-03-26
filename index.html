@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Count Tracker</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Add your favicon -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+    </style>
 </head>
-
 <body>
     <h1>Welcome to the Cookie Count Tracker!</h1>
     <p>Page views for this session:</p>
-    <div id="countDisplay">Loading count...</div>
+    <p id="viewCount">0</p>
+
+    <script>
+        // Retrieve page view count from localStorage
+        let count = localStorage.getItem('pageViews') || 0;
+        count++;
+        localStorage.setItem('pageViews', count);
+        document.getElementById('viewCount').innerText = count;
+    </script>
 </body>
-
-<script src="./script.js"></script>
-
 </html>
